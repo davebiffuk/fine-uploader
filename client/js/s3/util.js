@@ -136,6 +136,9 @@ qq.s3.util = qq.s3.util || (function() {
             if (type) {
                 conditions.push({"Content-Type": type});
             }
+            else {
+                conditions.push({"Content-Type": "application/octet-stream"});
+            }
 
             // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
             if (expectedStatus) {
@@ -265,6 +268,8 @@ qq.s3.util = qq.s3.util || (function() {
 
             if (type) {
                 awsParams["Content-Type"] = type;
+            } else {
+                awsParams["Content-Type"] = "application/octet-stream";
             }
             // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
             if (expectedStatus) {
